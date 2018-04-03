@@ -1,0 +1,34 @@
+.u-clearfix { @include clearfix; }
+.u-show-o { opacity: 1!important; }
+.u-show { display: block!important; }
+.u-hide { display: none; }
+
+.u-pageContent-ws { 
+  padding: 20px; 
+  @media (max-width: $breakSuperSmall) {
+    padding: 10px;
+  }
+}
+
+.u-success, .u-error {
+  color: $white;
+  padding: 6px;
+  font-size: 12px;
+}
+.u-success {background: $greenDark;}
+.u-error {background: $colorError; display: none;}
+
+.u-slideLefit {right: 0;}
+
+.u-adminBack { 
+  background-color: darken($colorPrimary, 10%);
+  height: 100vh;
+}
+.u-marginTop-superSmall {margin-top: 10px;}
+.u-marginTop-small {margin-top: 20px;}
+.u-marginTop-big {margin-top: 40px;}
+.u-margin-Bottom-big {margin-bottom: 40px;}
+.u-margin-Bottom-small {margin-bottom: 20px;}
+.u-txt-align-right {text-align: right;}
+ 
+.u-BCcol-dark { background-color: $grayDark!important; }

@@ -1,0 +1,11 @@
+.hr {
+  margin-bottom: 16px;
+  
+  &--short {
+    width: 40px;
+  }
+  
+  &--blue {
+    border: 2px solid $colorPrimary;
+  }
+}

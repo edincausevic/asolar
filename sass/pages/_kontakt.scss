@@ -1,0 +1,28 @@
+.kontakt {
+  margin: 20px 0px;
+  @include clearfix;
+  
+  &__info {
+    float: left;
+    width: 50%;
+    
+    &--box { margin-bottom: 12px; }
+    p {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    @media (max-width: $breakSmall) {
+      width: 100%;
+    }
+  }
+  
+  &__form {
+    float: right;
+    width: 50%;
+    @media (max-width: $breakSmall) {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+}

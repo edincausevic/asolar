@@ -1,0 +1,13 @@
+.main-navigation {
+  background-color: $colorPrimary;
+  border-top: 1px solid darken($colorPrimary, 5%);
+  border-bottom: 1px solid darken($colorPrimary, 5%);
+
+  &__listItem {
+    display: inline-block;
+  }
+  
+  @media (max-width: $breakMedium) {
+    ul { display: none; }
+  }
+}

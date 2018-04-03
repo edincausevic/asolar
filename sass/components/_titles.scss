@@ -1,0 +1,24 @@
+.title {
+  text-transform: uppercase;
+  
+  // h1
+  &--extra-large {
+    font-weight: 700;
+    font-size: $FSExtraLarge;
+  }
+  
+  // h2
+  &--large {
+    font-size: $FSLarge;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  &--small {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+  
+  &--white  { color: $white; }
+}

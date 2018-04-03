@@ -1,0 +1,33 @@
+.mobMenu {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  z-index: 6;
+  padding: 15px;
+  width: 100%;
+  transition: right 1s ease-in-out;
+  
+  .fa {
+    font-size: 120%;
+    margin-left: 5px;
+  }
+  
+  li {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid white;
+  }
+  
+  .btn { width: 100%; }
+}
+
+.mobMenu-back {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: $colorPrimary;
+  transition: right 1s ease-in-out;
+}

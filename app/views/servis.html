@@ -1,0 +1,122 @@
+<div class="article-menu-admin u-pageContent-ws">
+    <div class="article-menu-admin__content">
+      <h2 class="title title--large">Menu</h2>
+      <div class="forms u-marginTop-big">
+
+        <form ng-submit="addArticleMenu()">
+            <label for="dodaj" class="labels">Dodaj novi menu</label>
+            <input type="text" class="inputs" id="dodaj" 
+                   ng-model="state.newMenuArticleValue" 
+                   ng-keypress="state.editing = false" required>
+            <button type="submit" class="btn btn--small btn--blue">Dodaj</button>
+            <i class="fa fa-check success--check u-hide"
+               ng-show="state.articleMenuAdded === true"></i>
+        </form>
+
+        <form class="u-marginTop-small u-hide"
+              ng-submit="changeArticleName()" 
+              ng-class="{'u-show': state.editing === true}">
+            <label for="dodaj" class="labels">Promjeni ime artikla</label>
+            <input type="text" class="inputs" id="dodaj" ng-model="state.editingArticleName" required>
+            <button class="btn btn--small btn--blue"
+                    type="submit">Promjeni</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="artikli u-marginTop-big">
+      <div class="spinner u-hide" 
+           ng-show="state.articleMenuLoaded === true">
+        <div class="bounce1 loader--blue"></div>
+        <div class="bounce2 loader--blue"></div>
+        <div class="bounce3 loader--blue"></div>
+      </div>
+      <ul>
+        <li class="artikli__listItem" ng-repeat="menuEl in state.menuElms | orderBy:menuEl.id:true track by $index">
+          <a href="javascript:" 
+             class="btn btn--blue btn--list-item"
+             ng-class="{'btn--blue-active': state.activeMenuID == menuEl.id}"
+             ng-click="activeMenu(menuEl.id)">{{menuEl.ime}}</a>
+          <i class="fa fa-edit btn btn--blue"
+             ng-click="showEditArticleMenuForm(menuEl)"></i>
+          <i class="fa fa-trash btn btn--blue"
+             ng-click="removeArticleMenu(menuEl.id, menuEl.ime)"></i>
+        </li>
+      </ul>
+    </div>
+</div>
+<div class="main-content u-pageContent-ws">
+  <h2 class="title title--large">Artikli</h2>
+  <div>
+      <button class="btn btn--blue btn--small"
+              ng-class="{'btn--blue-active': state.filterActive === 'all'}"
+              ng-click="changeFilter('all')">Prikazi Sve Artikle</button>
+      <input type="text" class="inputs main-content__search" 
+             placeholder="Nadji artikl" ng-model="search.ime"/>        
+  </div>
+  <form action="backend/editArticle.php" 
+      method="POST"
+      enctype="multipart/form-data"
+      class="u-marginTop-big u-hide" 
+      ng-class="{'u-show': state.filterActive === 'edituj'}">
+    <label for="ime" class="labels">Ime artikla</label>
+    <input type="text" class="inputs" id="ime" name="ime" 
+           ng-model="editingArticle.ime" required/>
+    <label for="kratki-opis" class="labels">Kratki Opis</label>
+    <input type="text" class="inputs" id="kratki-opis" name="kratki-opis" 
+           ng-model="editingArticle.kratki_opis" required//>
+    <label for="opis-artikla" class="labels">Opis Artikla</label>
+    <textarea cols="30" rows="5" class="inputs" id="opis" name="opis" 
+           ng-model="editingArticle.opis" required/></textarea>
+    <label for="cijena" class="labels">Cijena - KM</label>
+    <input type="text" class="inputs" id="cijena" name="cijena" 
+           ng-model="editingArticle.cijena" required//>
+    <label for="slika" class="labels">Slika</label>
+    <input type="file" class="inputs" id="slika" name="slika"/>
+    <input type="text" style="display: none" name="id"
+           ng-model="state.editArticleID">
+    <img src="backend/uploads/{{editingArticle.slika}}" class="main-content__img" alt="Article Image">
+    <div class="u-txt-align-right u-marginTop-superSmall">
+      <button class="btn btn--blue btn--small" type="submit">Promjeni</button>
+    </div>
+  </form>
+  <div ng-show="state.filterActive === 'all'">
+    <ul>
+      <li class="artikli__listItem" ng-repeat="artikl in state.artikli | orderBy:menuEl.id:true | filter:search track by $index">
+        <a href="index.html#/artikli/wifi-kamere/{{artikl.id}}" 
+           target="_blank"
+           class="btn btn--blue btn--list-item">{{artikl.ime}}</a>
+        <span class="btn btn--blue izdvojeno"
+              ng-click="addToIzdvojeno(artikl.id, artikl.izdvojeno)">
+          <span ng-show="artikl.izdvojeno == 0">-</span>
+          <span ng-show="artikl.izdvojeno == 1">+</span>
+          Izdvojeno</span>   
+        <i class="fa fa-edit btn btn--blue"
+        ng-click="getArticle(artikl.id)"></i>   
+        <i class="fa fa-trash btn btn--blue"
+        ng-click="removeArticle(artikl.id, artikl.ime)"></i>
+      </li>
+    </ul>
+  </div>
+  <form action="backend/addArticle.php" 
+        method="POST"
+        enctype="multipart/form-data"
+        class="u-marginTop-big u-hide" 
+        ng-class="{'u-show': state.filterActive === 'dodaj'}">
+    <label for="ime" class="labels">Ime artikla</label>
+    <input type="text" class="inputs" id="ime" name="ime" required/>
+    <label for="kratki-opis" class="labels">Kratki Opis</label>
+    <input type="text" class="inputs" id="kratki-opis" name="kratki-opis" required//>
+    <label for="opis-artikla" class="labels">Opis Artikla</label>
+    <textarea cols="30" rows="5" class="inputs" id="opis" name="opis" required/></textarea>
+    <label for="cijena" class="labels">Cijena - KM</label>
+    <input type="text" class="inputs" id="cijena" name="cijena" required//>
+    <label for="slika" class="labels">Slika</label>
+    <input type="file" class="inputs" id="slika" name="slika" required//>
+    <input type="text" style="display: none" name="menuID"
+           ng-model="menuID">
+    <div class="u-txt-align-right u-marginTop-superSmall">
+        <button class="btn btn--blue btn--small" type="submit">Dodaj</button>
+    </div>
+  </form>
+</div>

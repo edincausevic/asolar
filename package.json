@@ -1,0 +1,28 @@
+{
+  "name": "albin-asolar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edin Causevic",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-chart.js": "^1.1.1",
+    "angular-route": "^1.6.9",
+    "fontawesome": "^4.7.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-less": "^3.3.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="login">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/login.styles.css">
+</head>
+<body ng-controller="loginCtrl">
+
+  <div class="admin u-adminBack">
+    <div class="login">
+      <h2 class="title title--large title--white">Login</h2>
+      <form class="u-marginTop-small" ng-submit="login()"> 
+        <label for="username" class="labels labels--white">Username</label>
+        <input type="text" 
+               id="username"
+               class="inputs"
+               ng-model="loginData.username"
+               ng-keypress="state.loginErrorMsg=false;state.retriveUserPassMsg=false"
+               required>
+        <label for="password" class="labels labels--white">Password</label>
+        <input type="password" 
+               id="password"
+               ng-model="loginData.password"
+               ng-keypress="state.loginErrorMsg=false;state.retriveUserPassMsg=false"
+               class="inputs"
+               required>
+        <button type="submit" class="btn btn--small btn--blue u-marginTop-small">Login</button>
+        <div class="spinner login__spinner"
+             ng-class="{'u-show': state.loadingSpinnerVisibility === true}">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+        <span class="u-error"
+              ng-class="{'u-show': state.loginErrorMsg === true}">Username ili password nije dobar.</span>
+        <div class="u-marginTop-small">
+          <div class="login__link"
+               ng-click="sendUserAndPassToEmail()"
+               ng-class="{'u-show': state.retriveUserPassMsg === false}">Posalji username i password na email.</div>
+          <div ng-show="state.retriveUserPassMsg" class="u-success">Username i password su poslani na {{state.email}}</div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/login.min.js"></script>
+</body>
+</html>

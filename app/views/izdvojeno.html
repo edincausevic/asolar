@@ -1,0 +1,22 @@
+<div class="izdvojeno page-content u-pageContent-ws">
+  <div class="cardContainer">
+    <div class="spinner" ng-hide="loaderVisibility">
+      <div class="bounce1 u-BCcol-dark"></div>
+      <div class="bounce2 u-BCcol-dark"></div>
+      <div class="bounce3 u-BCcol-dark"></div>
+    </div>
+    <div class="card" ng-repeat="artikl in artikli | orderBy:'-pregledan' track by $index">
+      <div ng-style="image_path != '' && {'background-image':'url(backend/uploads/'+artikl.slika+')'}" 
+          back-img="backend/uploads/{{artikl.slika}}"
+           class="card__image"></div>
+      <div class="card__textBox">
+        <h2 class="title title--large">{{artikl.ime}}</h2>
+        <p>{{artikl.opis | cutText:100}}</p>
+        <div class="card__textBox-Btn">
+          <button class="btn btn--blue btn--small"
+                  ng-click="showArticle(artikl.id)">Vise <i class="fa fa-angle-right"></i></button>
+        </div>
+      </div>     
+    </div>
+  </div>
+</div>

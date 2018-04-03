@@ -1,0 +1,20 @@
+<div class="artikl u-pageContent-ws">
+  <div class="spinner" ng-hide="loaderVisibility">
+    <div class="bounce1 u-BCcol-dark"></div>
+    <div class="bounce2 u-BCcol-dark"></div>
+    <div class="bounce3 u-BCcol-dark"></div>
+  </div>
+
+  <div class="artikl__image">
+    <img ng-src="backend/uploads/{{article.slika}}" class="artikl__img" alt="">
+  </div>
+  <div class="artikl__info">
+    <h2 class="title title--large">{{article.ime}}</h2>
+    <hr class="hr hr--blue hr--short">
+    <p>{{article.kratki_opis}}</p>
+    <h2 class="title title--large u-marginTop-superSmall">{{article.cijena}} KM</h2>
+    <p>{{article.opis}}</p>
+    <p class="u-marginTop-superSmall">Kontaktirajte nas:</p>
+    <p class="u-margin-Bottom-big">{{article.broj_telefona}}</p>
+  </div>
+</div>

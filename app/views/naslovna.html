@@ -1,0 +1,48 @@
+<div class="naslovna">
+<!--carousel--> 
+  <div class="carousel"> 
+    <div class="carousel__transCover" 
+         ng-mouseover="carouselPause()" 
+         ng-mouseleave="carouselContinue()">
+     
+      <span class="carousel__transCover-slideText" ng-repeat="text in carousel.navElms"
+            ng-class="{'carousel__transCover-slideText-animateDown': carousel.active === text.imageNum}">
+        <h2 class="title title--large">{{carousel.slideText[text.imageNum - 1].title}}</h2>
+        <p>{{carousel.slideText[text.imageNum - 1].text}}</p>
+      </span>
+
+      <div class="carousel__transCover-slideTextNav">
+        <div class="btn btn--circle btn--white"
+             ng-class="{'btn--white-active': carousel.active === 1}"
+             ng-click="changeSlide(1)"></div>
+        <div class="btn btn--circle btn--white"
+             ng-class="{'btn--white-active': carousel.active === 2}"
+             ng-click="changeSlide(2)"></div>
+        <div class="btn btn--circle btn--white"
+             ng-class="{'btn--white-active': carousel.active === 3}"
+             ng-click="changeSlide(3)"></div>
+      </div>
+    </div>
+    
+    <img src="assets/img/slide1.jpg"
+         class="carousel__img" 
+         ng-class="{'u-show-o': carousel.active === 1}" 
+         alt="Solarna oprema">
+    <img src="assets/img/slide2.jpg" 
+         class="carousel__img"
+         ng-class="{'u-show-o': carousel.active === 2}"
+         alt="Solarna oprema">
+    <img src="assets/img/slide3.jpg" 
+         class="carousel__img"
+         ng-class="{'u-show-o': carousel.active === 3}"
+         alt="Solarna oprema">
+  </div> <!--carousel-->
+  
+  <div class="page-content u-pageContent-ws">
+    <h2 class="title title--large">TITLE</h2>
+    <hr class="hr hr--short hr--blue"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut imperdiet nec tortor in sodales. Morbi pretium nec neque eget rutrum. Nullam eget sapien quis tellus cursus bibendum in et velit. Phasellus accumsan odio quis mattis condimentum. Fusce nec turpis tortor. Mauris placerat vehicula elit, id imperdiet purus aliquam sed. Fusce ac urna a justo ornare ullamcorper. Proin sollicitudin venenatis purus, quis dignissim odio finibus ultricies. Donec imperdiet nisl in orci pretium, ut lacinia tellus efficitur. Cras condimentum euismod nibh, ut interdum dolor. Aenean sit amet luctus erat. Etiam non ultrices libero, non mattis metus. In quis placerat libero, a volutpat dolor. Etiam sapien metus, imperdiet sit amet ornare non, convallis quis enim. Vivamus pulvinar, sapien mattis sodales laoreet, sapien tortor feugiat libero, at tristique eros tellus ut lacus. Vestibulum nulla dolor, aliquet eu malesuada sed, molestie volutpat ante.</p>
+    <p>Vivamus euismod efficitur risus nec aliquet. Fusce ornare malesuada elit, ut tincidunt lectus. In bibendum eros sed metus vestibulum sodales. Praesent dignissim scelerisque nisi sit amet ultricies. Proin convallis sollicitudin magna, non faucibus nisl. Mauris et felis dolor. Cras quis egestas metus. Aenean augue est, maximus quis justo malesuada, mattis sodales magna. Integer finibus auctor velit sed commodo. Etiam feugiat, ligula nec hendrerit malesuada, magna tellus laoreet purus, ac sollicitudin tellus magna quis mi. Pellentesque non magna arcu.</p>
+    <p>Praesent nec elit id lacus sodales dapibus at id quam. Pellentesque non ultricies nisi. Sed laoreet varius enim ut vestibulum. Etiam hendrerit ipsum sit amet eleifend bibendum. Fusce sit amet egestas leo, at molestie orci. Nulla a varius justo. Maecenas ullamcorper enim nec rutrum suscipit. Vivamus varius quam metus, quis accumsan quam tincidunt quis. Pellentesque aliquam eros ac quam interdum, consequat ultricies est fringilla. In eget neque mollis, dignissim turpis sit amet, placerat arcu. Pellentesque condimentum est ut scelerisque dictum. Nulla suscipit maximus nisi, nec placerat quam pulvinar eget. Aenean laoreet nisl a erat rutrum, id varius nisl porta. Donec sed scelerisque velit. Phasellus ornare mattis fermentum. Quisque volutpat arcu ac urna consequat egestas.</p>
+  </div>
+</div>

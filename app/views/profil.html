@@ -1,0 +1,34 @@
+<div class="profil u-pageContent-ws">
+    <form ng-submit="changeUsername()" class="u-marginTop-small">
+        <label for="dodaj" class="labels">Promjeni Username</label>
+        <input type="text" ng-model="state.newUsername" class="inputs" id="dodaj" required>
+        <button type="submit" class="btn btn--small btn--blue">Promjeni</button>
+        <i class="fa fa-check success--check"
+           ng-show="state.usernameChanged === true"></i>
+    </form>
+    <form ng-submit="changePassword()" class="u-marginTop-small">
+        <label for="dodaj" class="labels">Promjeni Password</label>
+        <input type="text" class="inputs" id="dodaj" 
+               ng-model="state.newPassword" required>
+        <button type="submit" class="btn btn--small btn--blue">Promjeni</button>
+        <i class="fa fa-check success--check"
+           ng-show="state.passwordChanged === true"></i>
+    </form>
+    <form ng-submit="changeEmail()" class="u-marginTop-small">
+        <label for="dodaj" class="labels">Promjeni Email</label>
+        <input type="email" class="inputs" id="dodaj" 
+               ng-model="state.newEmail" required>
+        <button type="submit" class="btn btn--small btn--blue">Promjeni</button>
+        <i class="fa fa-check success--check"
+           ng-show="state.emailChanged === true"></i>
+    </form>
+    <form ng-submit="cahngePhoneNum()" class="u-marginTop-small">
+        <label for="dodaj" class="labels">Promjeni Broj Telefona</label>
+        <input type="text" class="inputs" id="dodaj"
+               ng-model="state.newPhoneNum" required>
+        <button type="submit" class="btn btn--small btn--blue">Promjeni</button>
+        <i class="fa fa-check success--check"
+           ng-show="state.phoneNumChanged === true"></i>
+    </form>
+
+</div>

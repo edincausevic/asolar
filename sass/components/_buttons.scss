@@ -1,0 +1,96 @@
+.btn {
+  text-decoration: none;
+  cursor: pointer; 
+  transition: all .2s ease-in-out;
+  border: none;
+  
+  &--white {
+    color: $colorPrimary;
+    border-radius: 1px solid $white;
+    background-color: $white;
+    
+    &-active {
+      background-color: $colorPrimary;
+      border-radius: 1px solid $colorPrimary;
+    }
+  }
+
+  &--blue {
+    color: $white;
+    background-color: $colorPrimary;
+    
+    &-active {background-color: darken($colorPrimary, 5%);} 
+    &:active {background-color: darken($colorPrimary, 5%);} 
+  }
+  
+  &--primary {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 19px 24px;
+    font-weight: 600;
+
+    &:hover {
+      background-color: lighten($colorPrimary, 5%);
+    }
+  }
+  
+  &--list-item {
+    border-bottom: 1px solid $white;
+    padding: 13px;
+    display: block;
+    
+    i {
+      vertical-align: 2px;
+      font-size: 12px;
+      margin-right: 3px;
+    }
+    &:hover {
+      padding-left: 20px;
+    }
+  }
+  
+  &--circle {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 2px;
+    border-radius: 100px;
+  }
+  
+  &--small {
+    padding: 8px 15px;  
+    border-radius: 2px;
+  }
+  
+  &--bars {
+    float: right;
+    padding: 1.4rem 1.7rem;
+    font-size: 200%;
+    color: #ffffff;
+    background-color: #2980b9;
+    border: none;
+    display: none;
+    
+    @media (max-width: $breakMedium) {
+      display: block;
+    }
+  }
+  
+  &--goBack {
+    padding: 20px;
+    text-align: right;
+    border-bottom: 1px solid $white;
+    text-transform: uppercase;
+  }
+  
+  &:disabled {
+    background-color: lighten($colorPrimary, 20%);
+    cursor: unset;
+    &:hover { background-color: lighten($colorPrimary, 20%); }
+  }
+
+  &:hover {
+    background-color: lighten($colorPrimary,  5%);
+  } 
+}
+

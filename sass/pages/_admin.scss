@@ -1,0 +1,92 @@
+.admin {
+  //background-color: $colorPrimary;
+
+  &__nav {
+    width: 100%;
+
+    &-elems {
+      text-align: center;
+      background: $colorPrimary;
+    }
+    &-el {
+      display: inline-block;
+    }
+  }
+}
+
+.article-menu-admin {
+  width: 30%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.main-content {
+  width: 70%;
+  float: right;
+  padding-left: 50px;
+  box-sizing: border-box;
+
+  &__search {
+    width: inherit;
+    padding: 6px;
+    margin-left: 6px;
+    width: 300px;
+  }
+
+  &__img {
+    width: 100px;
+    float: left;
+  }
+}
+
+.artikli {
+
+  &__listItem {
+    position: relative;
+
+    .fa-trash {
+      position: absolute;
+      right: 0px;
+      top: 0;
+      padding: 15px;
+      z-index: 2;
+    }
+
+    .fa-edit {
+      padding: 15px;
+      position: absolute;
+      right: 40px;
+      top: 2px;
+    }
+
+    .izdvojeno {
+      position: absolute;
+      z-index: 1;
+      right: 86px;
+      top: 1px;
+      padding: 12px;
+    }
+  }
+}
+
+.statistike {
+  max-width: 837px;
+  margin: 0 auto;
+
+  &__chart {
+    width: 100%;
+    height: unset;
+  }
+
+  &__menuTitle {
+    display: inline-block;
+  }
+
+  &__resetStats {
+    display: inline-block;
+    padding: 10px 13px;
+    border-radius: 3px;
+    margin-left: 10px;
+    vertical-align: 3px;
+  }
+}

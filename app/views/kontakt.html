@@ -1,0 +1,66 @@
+<div class="page-content u-pageContent-ws">
+  <h2 class="title title--large">KONTAKTIRAJTE NAS:</h2>
+  <hr class="hr hr--short hr--blue"/>
+  
+  <div id="map" style="height: 300px"></div>
+  
+  <div class="kontakt">
+    <div class="kontakt__info">
+      <div class="kontakt__info--box">
+        <H3 class="title title--small">Radno vrijeme</H3>
+        <p>09:00 – 15:00 h</p>
+      </div>
+      <div class="kontakt__info--box">
+        <H3 class="title title--small">Adresa</H3>
+        <p>Čaršija 52 Bosanska Otoka</p>
+      </div>
+      <div class="kontakt__info--box">
+        <H3 class="title title--small">Broj mob</H3>
+        <p>{{info.broj_telefona}}</p>
+      </div>
+      <div class="kontakt__info--box">
+        <H3 class="title title--small">E – mail</H3>
+        <p>{{info.email}}</p>
+      </div>
+    </div>
+    <div class="kontakt__form">
+      <form ng-submit="sendEmail()">
+        <input type="text" 
+               class="inputs"
+               placeholder="Ime i Prezime"
+               ng-model="emailFormData.name"
+               ng-keypress="showEmailSuccessMsg=false"
+               required>    
+        <input type="email" 
+               class="inputs"
+               placeholder="E-mail"
+               ng-keypress="showEmailSuccessMsg=false"
+               ng-model="emailFormData.email"
+               required>
+        <textarea cols="30" rows="10" 
+                  class="inputs"
+                  placeholder="Poruka/Pitanje"
+                  ng-keypress="showEmailSuccessMsg=false"
+                  ng-model="emailFormData.text"
+                  required></textarea>
+        <button class="btn btn--small btn--blue"
+                ng-class="{'u-hide': emailSubmited !== false}">
+          Posalji <i class="fa fa-paper-plane"></i>
+        </button>
+        <button class="btn btn--small"
+                ng-class="{'u-hide': emailSubmited === false}" 
+                type="submit" 
+                disabled>
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+        </button>
+        <span class="u-success" ng-show="showEmailSuccessMsg"><i class="fa fa-check"></i> Uspjesno ste poslali poruku.</span>
+      </form>
+    </div>
+  </div>
+</div>
+
+

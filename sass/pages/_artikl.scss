@@ -1,0 +1,19 @@
+.artikl {
+
+  &__image {
+    width: 50%;
+    float: left;
+
+    img { width: 100%; }
+  }
+
+  &__info {
+    width: 50%;
+    float: right;
+    padding: 10px;
+  }
+
+  @media (max-width: $breakSmall) {
+    &__image, &__info { width: 100%;}
+  }
+}

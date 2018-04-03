@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ba" ng-app="index">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A-Solar</title>
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/index.styles.css">
+</head>
+<body ng-controller="mainCtrl">
+  <div class="row u-clearfix"> 
+    <aside class="article-menu">
+      <img src="assets/img/menu2.gif" class="article-menu__gif" alt="Solarna kuca">
+      <div class="article-menu__menu">
+        <h2 class="title title--large title--white">Kategorije</h2>
+        <ul>
+          <li ng-repeat="menuEl in menuElms | orderBy:'pregledan' track by $index">
+            <a href="#/artikli/{{menuEl.route}}"
+               ng-click="setNumOfViews(menuEl.id, menuEl.pregledan)" 
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> {{menuEl.ime}}
+            </a>
+          </li>
+        </ul>  
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <div class="header__text-box">
+          <h1 class="title title--extra-large title--white">A-Solar Shop</h1>
+          <h2 class="title title--large title--white">Vaš izbor solarne opreme</h2>
+        </div>
+      </header>
+      <nav class="main-navigation u-clearfix ">
+        <i class="fa fa-align-justify btn btn--bars"
+           ng-click="toggleMobMenu()"></i>
+        <ul>
+          <li class="main-navigation__listItem">
+            <a href="#/" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/'}">Naslovna</a>
+          </li>
+          <li class="main-navigation__listItem">
+            <a href="#/izdvojeno" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/izdvojeno'}">Izdvojeno</a>
+          </li>
+          <li class="main-navigation__listItem">
+            <a href="#/o-nama" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/o-nama'}">O nama</a>
+          </li>
+          <li class="main-navigation__listItem">
+            <a href="#/kontakt" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/kontakt'}">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <ng-view></ng-view>
+      
+      <div class="mobMenu" 
+           ng-class="{'u-slideLefit': state.toggleMobMenu === true}">
+        <button class="btn btn--blue btn--goBack"
+                ng-click="toggleMobMenu()">
+          Nazad <i class="fa fa-angle-right"></i>
+        </button>
+        <ul>
+          <li class="main-navigation__listItem">
+            <a href="#/" 
+               ng-click="toggleMobMenu()" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/'}">Naslovna</a>
+          </li>
+          <li class="main-navigation__listItem">
+            <a href="#/izdvojeno"
+               ng-click="toggleMobMenu()"  
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/izdvojeno'}">Izdvojeno</a>
+          </li>
+          <li class="main-navigation__listItem">
+            <a href="#/o-nama" 
+               ng-click="toggleMobMenu()" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/o-nama'}">O nama</a>
+          </li>
+          <li class="main-navigation__listItem">
+            <a href="#/kontakt" 
+               ng-click="toggleMobMenu()" 
+               class="btn btn--primary btn--blue"
+               ng-class="{'btn--blue-active': page === '/kontakt'}">Kontakt</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#/artikli/solarni-paneli"
+               ng-click="toggleMobMenu()"  
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Solarni paneli
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/solarni-regulatori"
+               ng-click="toggleMobMenu()"  
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Solarni regulatori
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/pretvaraci-napona"
+               ng-click="toggleMobMenu()"  
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Pretvaraci napona
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/akomulatori" 
+               ng-click="toggleMobMenu()" 
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Akomulatori
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/led-sijelice" 
+               ng-click="toggleMobMenu()" 
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Led sijelice
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/sitna-solarna-oprema"
+               ng-click="toggleMobMenu()"  
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Sitna solarna oprema
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/solarne-ulicne-svijetiljke"
+               ng-click="toggleMobMenu()"  
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Solarne ulicne svijetiljke
+            </a>
+          </li>
+          <li>
+            <a href="#/artikli/wifi-kamere"
+               ng-click="toggleMobMenu()" 
+               class="btn btn--blue btn--list-item">
+               <i class="fa fa-caret-right"></i> Wifi kamere
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="mobMenu-back"
+           ng-class="{'u-slideLefit': state.toggleMobMenu === true}"></div>
+      
+    </main>
+  </div>
+<!--GOOGLE MAP-->  
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGqBKzOcAMCrqX9e8B-wPyfWXVFxwmnqw" type="text/javascript"></script>
+<!--ANGULARJS-->
+<script src="assets/js/index.min.js"></script>
+
+</body>
+</html>

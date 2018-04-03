@@ -1,0 +1,46 @@
+.card {
+  margin-right: 2%;
+  width: 23%;
+  margin-bottom: 20px;
+  background-color: $superLightGray;
+  border: 1px solid darken($superLightGray, 5%);
+  border-radius: 2px;
+  padding: 10px 0;
+  display: inline-block;
+  
+  &__image {
+    width: 100%;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  &__textBox {
+    padding: 9px;
+    
+    h2 {
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    p {min-height: 154px;}
+  }
+  
+  &__textBox-Btn {
+    text-align: right;
+
+    button {
+      display: inline-block;
+      margin-top: 15px;
+    }
+  }
+
+  @media (max-width: $breakSuperSmall) {
+    width: 100%;
+    margin-right: 0;
+
+    &__textBox {
+      p {min-height: unset;}
+    }
+  }
+}

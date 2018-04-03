@@ -1,0 +1,19 @@
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 300px;
+
+  &__link {
+    color: $white;
+    text-decoration: underline;
+    cursor: pointer;
+    display: none;
+  }
+
+  &__spinner {
+    display: inline-block;
+    display: none;
+  }
+}

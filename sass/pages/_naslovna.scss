@@ -1,0 +1,61 @@
+.naslovna {
+  
+  
+}
+
+.carousel {
+  position: relative;
+  height: 275px;
+  
+  &__transCover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 1;
+    
+    &-slideText {
+      color: $white;
+      margin-top: 0;
+      opacity: 0;
+      margin-left: 20px;
+      width: 58%;
+      position: absolute;
+      transition: all .5s ease-in-out;
+
+      .title {
+        margin-bottom: 7px;
+      }
+      
+      &-animateDown {
+        margin-top: 66px;
+        opacity: 1;
+      }
+      @media (max-width: $breakSuperSmall) {
+        &-animateDown {
+          margin-top: 46px;
+        }
+      }
+    }
+    
+    &-slideTextNav {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      z-index: 2;
+    }
+  }
+  
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+  }
+}

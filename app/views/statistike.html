@@ -1,0 +1,14 @@
+<div class="row">
+    <div ng-controller="statistike" class="statistike">
+        <h2 class="titles u-marginTop-big u-margin-Bottom-small statistike__menuTitle">Menu</h2>
+        <button class="statistike__resetStats btn btn--blue"
+                ng-click="resetStatistics()">Resetuj Statistike</button>
+        <canvas id="base" class="chart-horizontal-bar statistike__chart"
+        chart-data="dataMenu" chart-labels="labelsMenu"></canvas>
+      
+        <h2 class="titles u-marginTop-big u-margin-Bottom-small">Artikli</h2>
+        <canvas id="base" class="chart-horizontal-bar statistike__chart u-margin-Bottom-small"
+        chart-data="dataArtikli" chart-labels="labelsArtikli"></canvas>
+      </canvas> 
+    </div>
+</div>
